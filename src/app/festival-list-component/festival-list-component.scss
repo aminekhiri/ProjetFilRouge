@@ -1,0 +1,29 @@
+.festival-counter {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.festival-list {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;  /* deux colonnes égales */
+  justify-content: center;
+  margin-top: 20px;
+  padding: 10px;
+
+}
+
+h2, h3 {
+  text-align: center;
+  color: #333;
+}
+
+.hidden {
+  display: none;
+}

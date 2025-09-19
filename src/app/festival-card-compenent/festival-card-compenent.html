@@ -1,0 +1,11 @@
+<div class="festival-card">
+  @if (state() === 'En cours') {
+    <div class="highlight">Événement principal : {{ name() }} {{ year() }}</div>
+  }
+  <h3>{{ name() }}</h3>
+  <p>Lieu : {{ location() }}</p>
+  <p>Région : {{ region() }}</p>
+  <p>Année : {{ year() }}</p>
+  <p>État : {{ state() }}</p>
+  <button (click)="onDelete()">Supprimer</button>
+</div>

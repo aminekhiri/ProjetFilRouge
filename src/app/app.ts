@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { FestivalListComponent } from './festival-list-component/festival-list-component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FestivalListComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

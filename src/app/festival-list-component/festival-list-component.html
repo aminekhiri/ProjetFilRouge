@@ -1,0 +1,24 @@
+<div class="festival-counter">
+  <h3>Statistiques des festivals</h3>
+  <div class="counter-details">
+    <p>Total des festivals : {{ totalFestivals() }}</p>
+  </div>
+  <div class="counter-buttons">
+  </div>
+</div>
+
+<h2>Liste des festivals</h2>
+<div class="festival-list">
+  @for (festival of festivals; track festival.name; let i = $index) {
+    <app-festival-card-compenent
+      [name]="festival.name"
+      [location]="festival.location"
+      [region]="festival.region"
+      [year]="festival.year"
+      [state]="festival.state"
+      [class.current-festival]="festival.state === 'En cours'"
+      (remove)="onDelete(i)"
+      [class.hidden]="festival.hidden">
+    </app-festival-card-compenent>
+  }
+</div>
