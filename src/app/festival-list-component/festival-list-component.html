@@ -7,18 +7,60 @@
   </div>
 </div>
 
+
+
+<!-- Formulaire Angular Material -->
+<mat-card class="form-card">
+  <mat-card-header>
+    <mat-card-title>Ajouter un nouveau festival</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="festivalForm" (ngSubmit)="onSubmit()" class="festival-form">
+      <mat-form-field appearance="outline">
+        <mat-label>Nom du festival</mat-label>
+        <input matInput formControlName="name" placeholder="Ex: Rock en Seine">
+      </mat-form-field> 
+
+      <mat-form-field appearance="outline">
+        <mat-label>location</mat-label>
+        <input matInput formControlName="location" placeholder="Ex: Paris">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Région</mat-label>
+        <input matInput formControlName="region" placeholder="Ex: Île-de-France">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Année</mat-label>
+        <input matInput type="number" formControlName="year" placeholder="2025">
+      </mat-form-field> <br>
+
+      <button mat-raised-button color="primary" type="submit">
+        Ajouter le festival
+      </button>
+
+      <button mat-raised-button color="warn" type="button" (click)="onReset()">
+        Vider la liste
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+
 <h2>Liste des festivals</h2>
 <div class="festival-list">
-  @for (festival of festivals; track festival.name; let i = $index) {
+  @for (festival of festivals; track festival.id; let i = $index) {
     <app-festival-card-compenent
       [name]="festival.name"
       [location]="festival.location"
       [region]="festival.region"
       [year]="festival.year"
-      [state]="festival.state"
-      [class.current-festival]="festival.state === 'En cours'"
+      [state]="festival.getState()"
+      [class.current-festival]="festival.getState() === 'En cours'"
       (remove)="onDelete(i)"
       [class.hidden]="festival.hidden">
     </app-festival-card-compenent>
+
   }
 </div>
