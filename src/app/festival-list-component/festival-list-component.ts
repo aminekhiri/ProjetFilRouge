@@ -55,7 +55,7 @@ export class FestivalListComponent {
     this.totalFestivals.update(() => this.festivals.length);
   }
 
-    // Formulaire réactif
+  // Formulaire réactif
   festivalForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -73,7 +73,7 @@ export class FestivalListComponent {
     });
   }
 
-    onSubmit() {
+  onSubmit() {
     const formValue = this.festivalForm.value;
     this.addFestival(formValue.name, formValue.location, formValue.region, formValue.year);
     this.festivalForm.reset();
