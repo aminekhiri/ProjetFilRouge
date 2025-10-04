@@ -1,0 +1,13 @@
+/* Structure de la mise en page */
+.layout-container {
+  display: flex; /* Utilisation de flexbox pour la mise en page */
+  min-height: calc(100vh - 64px); /* Hauteur pleine page moins la hauteur du header */
+}
+
+/* Style de la barre latérale */
+.sidebar {
+  width: 170px; 
+  border-right: 1px solid #e0e0e0;
+  padding: 16px;
+}
+

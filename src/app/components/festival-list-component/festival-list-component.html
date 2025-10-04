@@ -1,0 +1,35 @@
+<div class="festival-counter">
+  <h3>Statistiques des festivals</h3>
+  <div class="counter-details">
+    <p>Total des festivals : {{ svc.totalFestivals() }}</p>
+    <p>Festivals en cours : {{ svc.activeFestivals().length }}</p>
+  
+  </div>
+  <div class="counter-buttons">
+  </div>
+
+
+</div>
+
+  <app-festival-form
+    (festivalSubmit)="onFestivalSubmitted($event)">
+  </app-festival-form>
+
+
+
+<h2>Liste des festivals</h2>
+<div class="festival-list">
+  @for (festival of svc.festivals(); track festival.id; let i = $index) {
+    <app-festival-card-compenent
+      [name]="festival.name"
+      [location]="festival.location"
+      [region]="festival.region"
+      [date]="festival.date"
+      [state]="festival.getState()"
+      [isCurrent]="festival.isCurrent()"
+      [class.current-festival]="festival.isCurrent()"
+      (remove)="onDelete(i)">
+    </app-festival-card-compenent>
+
+  }
+</div>

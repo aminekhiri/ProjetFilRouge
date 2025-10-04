@@ -1,0 +1,7 @@
+  <!-- Affichage du festival courant -->
+  <div class="current-festival">
+    @if (store.currentFestivalId() !== null) {
+      <span class="info-label">Festival courant: </span>
+      <span class="info-value">{{ currentFestivalName() }}</span>
+    }
+  </div>

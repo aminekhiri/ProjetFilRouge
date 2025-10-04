@@ -24,9 +24,7 @@ h2, h3 {
   color: #333;
 }
 
-.hidden {
-  display: none;
-}
+
 
 
 .festival-form mat-form-field {
@@ -37,4 +35,8 @@ h2, h3 {
 .festival-form button {
   margin-left: 5px;
   margin-right: 5px;
+}
+
+.current-festival {
+  border-color: violet;
 }

@@ -1,0 +1,77 @@
+<div class="festival-form-container">
+  <h2>{{ festivalToEdit() ? 'Modifier le festival' : 'Ajouter un nouveau festival' }}</h2>
+  
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="festival-form">
+    
+
+    <label for="name">Nom du festival</label>
+    <input 
+    type="text" 
+    id="name" 
+    formControlName="name"
+    placeholder="Ex: Rock en Seine"
+    class="form-control">
+    @if (form.controls['name'].errors?.['required']){
+    <small>Le nom du festival est obligatoire</small>
+    }
+    @if (form.controls['name'].errors?.['minlength']){
+        <small>Le nom du festival doit faire au moins 3 caractères</small>
+    }
+
+    <br>
+    <label for="location">Lieu</label>
+    <input 
+    type="text" 
+    id="location" 
+    formControlName="location"
+    placeholder="Ex: Paris"
+    class="form-control">
+    @if (form.controls['location'].errors?.['required']){
+        <small>Le lieu est obligatoire</small>
+    }
+    @if (form.controls['location'].errors?.['minlength']){
+        <small>Le lieu doit faire au moins 2 caractères</small>
+    }
+
+    <br>
+    <label for="region">Région</label>
+    <input 
+    type="text" 
+    id="region" 
+    formControlName="region"
+    placeholder="Ex: Île-de-France"
+    class="form-control">
+    @if (form.controls['region'].errors?.['required']){
+        <small>La région est obligatoire</small>
+    }
+
+
+    <br>
+    <label for="date">Date</label>
+    <input 
+    type="date" 
+    id="date" 
+    formControlName="date"
+    class="form-control">
+    @if (form.controls['date'].errors?.['required']){
+        <small>La date est obligatoire</small>
+    }
+
+    <br>
+    <button 
+    type="submit" 
+    [disabled]="form.invalid"
+    class="btn btn-primary">
+    {{ festivalToEdit() ? 'Mettre à jour' : 'Ajouter' }}
+    </button>
+
+    <button 
+    type="button"
+    class="btn btn-danger" 
+    (click)="onReset()">
+    Vider la liste
+    </button>
+
+
+  </form>
+</div>

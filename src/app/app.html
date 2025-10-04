@@ -1,4 +1,15 @@
 
+<app-header></app-header>
 
-<app-festival-list-component></app-festival-list-component>
-<router-outlet />
+<div class="layout-container">
+  <aside class="sidebar">
+    <app-side-bar></app-side-bar>
+  </aside>
+
+
+  <main class="main-content">
+    <app-festival-list-component></app-festival-list-component>
+    <router-outlet />
+  </main>
+
+</div>

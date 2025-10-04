@@ -1,0 +1,43 @@
+<mat-toolbar color="primary">
+  <span class="logo">Header</span>
+  
+  <span class="spacer"></span>
+  
+  <!-- Affichage du festival courant -->
+  <div class="current-festival">
+    @if (appState.currentFestivalId() !== null) {
+      <span class="info-label">Festival: </span>
+      <span class="info-value">{{ currentFestivalName() }}</span>
+    }
+  </div>
+
+  <span class="spacer"></span>
+
+  <!-- Affichage de l'utilisateur courant ou bouton de connexion -->
+  <div class="user-section">
+    @if (appState.isLoggedIn()) {
+      <span class="welcome-message">
+        <span class="info-label">Utilisateur: </span>
+        <span class="info-value">{{ appState.userName() }}</span>
+      </span>
+        <button mat-icon-button color="accent" (click)="logout()" aria-label="Déconnexion">
+            <mat-icon>logout</mat-icon>
+        </button>
+    } @else {
+      <!-- Bouton de connexion pour tester -->
+      <button mat-raised-button color="accent" (click)="login()">
+        <mat-icon>login</mat-icon>
+        Connexion
+      </button>
+
+    }
+  </div>
+  
+  <!-- Bouton pour naviguer vers le festival suivant -->
+  <div class="festival-selector">
+    <button mat-raised-button color="accent" (click)="nextFestival()">
+      <mat-icon>arrow_forward</mat-icon>
+      Next Festival
+    </button>
+  </div>
+</mat-toolbar>
