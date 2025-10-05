@@ -11,3 +11,9 @@
   padding: 16px;
 }
 
+.nav-links nav {
+    display: flex;
+    gap: 20px; /* Espacement entre les liens */
+    justify-content: center;
+    align-items: center;
+}

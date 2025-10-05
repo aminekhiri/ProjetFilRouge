@@ -1,5 +1,7 @@
 
-<app-header></app-header>
+
+
+<!-- <app-header></app-header>
 
 <div class="layout-container">
   <aside class="sidebar">
@@ -9,7 +11,14 @@
 
   <main class="main-content">
     <app-festival-list-component></app-festival-list-component>
-    <router-outlet />
   </main>
 
+</div> -->
+
+<div class="nav-links">
+  <nav>
+    <a routerLink="" routerLinkActive="active-link" >Home</a>
+    <a routerLink="festivals" routerLinkActive="active-link">Exposants</a>
+  </nav>
+  <router-outlet></router-outlet>
 </div>

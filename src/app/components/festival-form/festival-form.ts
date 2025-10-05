@@ -1,6 +1,6 @@
 import { Component, effect, inject, input, output } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { FestivalClass } from '../../festival-class';
+import { FestivalClass } from '../../models/festival-class';
 import { CommonModule } from '@angular/common';
 import { FestivalService } from '../../services/festival-service';
 
@@ -40,13 +40,14 @@ export class FestivalForm {
   });
 
   // Input pour recevoir un festival à éditer
-  festivalToEdit = input<FestivalClass | null>(null);
+  festivalToEdit = input<FestivalClass | null>(null); //pas encore utilise vraiment
 
   // Output qui émet un festival vers le parent
   festivalSubmit = output<{name: string, location: string, region: string, date: Date}>();
 
   constructor() {
     // Effect pour pré-remplir le formulaire quand un festival est reçu
+    //mais pour l'instant pas utilise car pas d'edition
     effect(() => {
       const festival = this.festivalToEdit();
       if (festival) {
@@ -83,11 +84,16 @@ export class FestivalForm {
         date: ''
       });
     }
-  }
+  }  
+  
+  
+  resetList = output<void>();
 
   onReset(): void {
-    this.svc.resetFestivals();
+    this.resetList.emit();
   }
+
+
 
 
 

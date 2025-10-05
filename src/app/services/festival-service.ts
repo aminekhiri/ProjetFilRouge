@@ -1,5 +1,5 @@
 import { Injectable, signal, computed } from '@angular/core';
-import { FestivalClass } from '../festival-class';
+import { FestivalClass } from '../models/festival-class';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +27,13 @@ export class FestivalService {
   
   // Méthode pour ajouter un festival
   addFestival(name: string, location: string, region: string, date: Date) {
+    // Trouver le plus grand ID existant et ajouter 1
+    const maxId = this._festivals().length > 0 
+      ? Math.max(...this._festivals().map(f => f.id)) 
+      : 0;
+    
     const newFestival = new FestivalClass(
-      this._festivals().length + 1,
+      maxId + 1,
       name,
       location,
       region,
@@ -51,6 +56,12 @@ export class FestivalService {
   resetFestivals() {
     this._festivals.set([]);
     this.saveToLocalStorage();
+  }
+
+  // Méthode pour récupérer un festival par son ID
+  getFestivalById(id: number | null): FestivalClass | null {
+    if (id === null) return null;
+    return this._festivals().find(festival => festival.id === id) || null;
   }
   
   // Méthode pour sauvegarder dans localStorage

@@ -4,7 +4,7 @@ import { FestivalService } from '../../services/festival-service';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { FestivalClass } from '../../festival-class';
+import { FestivalClass } from '../../models/festival-class';
 import { FestivalCardCompenent } from '../festival-card-compenent/festival-card-compenent';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';

@@ -1,7 +1,9 @@
 <div class="festival-form-container">
-  <h2>{{ festivalToEdit() ? 'Modifier le festival' : 'Ajouter un nouveau festival' }}</h2>
   
   <form [formGroup]="form" (ngSubmit)="onSubmit()" class="festival-form">
+
+    <h2>{{ festivalToEdit() ? 'Modifier le festival' : 'Ajouter un nouveau festival' }}</h2>
+
     
 
     <label for="name">Nom du festival</label>

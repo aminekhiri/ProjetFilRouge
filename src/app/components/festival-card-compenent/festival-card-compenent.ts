@@ -1,7 +1,7 @@
 import { Component, input, output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButton, MatButtonModule } from '@angular/material/button';
-import { FestivalClass } from '../../festival-class';
+import { FestivalClass } from '../../models/festival-class';
 import { DatePipe } from '@angular/common';
 
 @Component({

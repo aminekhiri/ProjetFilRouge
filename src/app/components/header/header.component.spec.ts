@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeaderComponent } from './header.component';
 import { AppStateStore } from '../../stores/app-state.store';
 import { FestivalService } from '../../services/festival-service';
-import { FestivalClass } from '../../festival-class';
+import { FestivalClass } from '../../models/festival-class';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
 import { computed } from '@angular/core';

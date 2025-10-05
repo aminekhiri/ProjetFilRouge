@@ -11,12 +11,23 @@
 
 .festival-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;  /* deux colonnes égales */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
   justify-content: center;
   margin-top: 20px;
-  padding: 10px;
-  align-items: center; 
+  padding: 0 20px;
+}
 
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.festival-card {
+  width: 100%;
+  margin-bottom: 15px;
 }
 
 h2, h3 {

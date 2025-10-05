@@ -1,0 +1,16 @@
+
+
+<h1>Details de l'exposant</h1>
+
+<div class="infos">
+    <h2><strong>{{ (festival$ | async)?.name }}</strong></h2>
+    <p>ID: {{ id$ | async }}</p>
+    <p>Lieu: {{ (festival$ | async)?.location }}</p>
+    <p>Région: {{ (festival$ | async)?.region }}</p>
+    <p>Date: {{ (festival$ | async)?.date | date:'longDate' }}</p>
+    <p>État: {{ (festival$ | async)?.getState() }}</p>
+    <button (click)="goBack()">Retour à la liste des exposants</button>
+</div>
+
+
+

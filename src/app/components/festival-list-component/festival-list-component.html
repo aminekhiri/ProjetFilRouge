@@ -1,3 +1,7 @@
+<app-header></app-header>
+<app-side-bar></app-side-bar>
+
+
 <div class="festival-counter">
   <h3>Statistiques des festivals</h3>
   <div class="counter-details">
@@ -12,24 +16,26 @@
 </div>
 
   <app-festival-form
-    (festivalSubmit)="onFestivalSubmitted($event)">
+    (festivalSubmit)="onFestivalSubmitted($event)"
+    (resetList)="onResetList()">
   </app-festival-form>
-
-
 
 <h2>Liste des festivals</h2>
 <div class="festival-list">
   @for (festival of svc.festivals(); track festival.id; let i = $index) {
-    <app-festival-card-compenent
-      [name]="festival.name"
-      [location]="festival.location"
-      [region]="festival.region"
-      [date]="festival.date"
-      [state]="festival.getState()"
-      [isCurrent]="festival.isCurrent()"
-      [class.current-festival]="festival.isCurrent()"
-      (remove)="onDelete(i)">
-    </app-festival-card-compenent>
-
+    <div class="card-container">
+      <app-festival-card-compenent
+        class="festival-card"
+        [name]="festival.name"
+        [location]="festival.location"
+        [region]="festival.region"
+        [date]="festival.date"
+        [state]="festival.getState()"
+        [isCurrent]="festival.isCurrent()"
+        [class.current-festival]="festival.isCurrent()"
+        (remove)="onDelete(i)">
+      </app-festival-card-compenent>
+      <a routerLink="/exposants/{{ festival.id }}">Voir détails</a>
+    </div>
   }
 </div>
