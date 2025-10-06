@@ -6,5 +6,6 @@ import { ExpostantDetailComponent } from './components/expostant-detail-componen
 export const routes: Routes = [
     { path: '', component: FestivalHomeComponent },
     { path: 'festivals', component: FestivalListComponent },
-    { path: 'exposants/:id', component: ExpostantDetailComponent }
+    { path: 'exposants/:id', component: ExpostantDetailComponent },
+    { path: '**', redirectTo: '' } // Rediriger les routes non reconnues vers la page d'accueil
 ];

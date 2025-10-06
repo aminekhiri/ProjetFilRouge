@@ -1,9 +1,10 @@
 import { Component, inject, input} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map } from 'rxjs';
+import { filter, map } from 'rxjs';
 import { AsyncPipe , DatePipe, Location} from '@angular/common';
 import { F } from '@angular/cdk/keycodes';
 import { FestivalService } from '../../services/festival-service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-expostant-detail-component',
@@ -21,8 +22,12 @@ export class ExpostantDetailComponent {
   // }
 
   route = inject(ActivatedRoute);
-   id$ = this.route.paramMap.pipe(map(params => params.get('id')));
-
+  id$ = this.route.paramMap.pipe(
+    map(params => params.get('id')),
+    filter((id): id is string => id !== null),
+    map(id => Number(id))
+    )
+  public routeId = toSignal(this.id$, { initialValue: null })
    //on va mettre en input les informations de l'exposant
 
   //  name = input<string>();
@@ -36,7 +41,7 @@ export class ExpostantDetailComponent {
    //on va chercher le festival par son id dans la liste des festivals du service
    festival$ = this.id$.pipe(
     map(id => {
-      const festivalId = id ? parseInt(id, 10) : null; //parseInt(id,10) pour convertir en number et base 10
+      const festivalId = id ? id : null; //id is already a number from the previous map operation
       return this.svc.getFestivalById(festivalId);
     })
    );
